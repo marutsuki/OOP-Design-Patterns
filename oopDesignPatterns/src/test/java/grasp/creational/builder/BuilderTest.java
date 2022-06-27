@@ -1,5 +1,7 @@
-package grasp.creational.factory;
+package grasp.creational.builder;
 
+import grasp.creational.builder.Builder;
+import grasp.creational.builder.ComplexDummy;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

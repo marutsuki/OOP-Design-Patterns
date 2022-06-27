@@ -1,4 +1,4 @@
-package grasp.creational.factory;
+package grasp.creational.singleton;
 
 import lombok.extern.log4j.Log4j2;
 

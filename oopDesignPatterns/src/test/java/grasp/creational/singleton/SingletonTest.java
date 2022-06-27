@@ -1,5 +1,6 @@
-package grasp.creational.factory;
+package grasp.creational.singleton;
 
+import grasp.creational.singleton.Singleton;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package grasp.creational.factory;
+package grasp.creational.builder;
 
 /**
  * Pattern name: Builder
