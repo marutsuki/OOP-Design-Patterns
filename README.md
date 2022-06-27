@@ -3,10 +3,10 @@ This is an ongoing project to demonstrate my enthusiasm for Object Oriented desi
 Through this repository, you can find sample code of some of the many design patterns dominant in the object oriented paradigm.
 Feel free to reference the code in your own works at your own benefit.
 
-##### Table of Contents  
+## Table of Contents  
 [Introduction](#introduction)  
 [Progress](#progress)  
-...snip...    
+[Get Started](#get-started)
 
 ## Introduction
 When I decided to write my first Java app, I had no experience nor foundation in the fundamentals of object-oriented programming.
@@ -49,3 +49,30 @@ And to those that disagree with OOP. I'm not against you, some of your arguments
 | Strategy | Not started |
 | Template method | Not started |
 | Mediator | Not started |
+
+## Get Started
+1. Clone the repository first.
+Copy the HTTP/SSH link:
+```
+git clone <repository-link>
+```
+
+2. Install the dependencies
+```
+mvn clean && mvn compile
+```
+
+3. Navigate the codebase
+This project is designed to be read rather than run.
+There are test suites designed to show that the implementations are correct.
+
+If you want to run the test cases, I highly recommend using an IDE like Eclipse or IntelliJ.
+
+Otherwise, you can run:
+```
+mvn test
+```
+Or if you want to run a specific test suite:
+```
+mvn -Dtest=<ClassName> test
+```
