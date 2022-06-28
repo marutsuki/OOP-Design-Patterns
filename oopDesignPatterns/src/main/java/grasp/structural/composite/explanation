@@ -1,0 +1,31 @@
+Pattern name: Composite
+
+Problem: Imagine you are tasked with designing a sketchpad app. As part of requirements, you need to allow the user
+to drag and drop in shapes from a prescribed set.
+
+This seems simple enough to model with some objects. Let's just have a Shape supertype and different shapes as
+the subtypes, where each subtype decides how to render the shape (let's ignore this complexity and simply use messages
+to mimic the rendering of a particular shape).
+
+Then, your product owner lets you know that the app will need to support the feature to combine multiple shapes.
+
+At first, you decide to create a class to represent a combinatory complex shape, but then the client wasn't impressed;
+They wanted multiple layers of combinations - Complex shapes should be able to contain other complex shapes.
+
+Solution: What we designed at first is actually pretty much the entire pattern. We just need to introduce one extra addition.
+
+We need the complex shape class to be a subtype of a normal Shape. Yep, a class that contains instances of it's own supertype.
+
+A common supertype -> The component.
+Subtypes that are not recursively dependent on more of it's own type -> The leaves.
+Subtypes that are the aggregation of one or more of it's own type -> The composites.
+That's the composite pattern!
+            _________________
+            |               |<------
+            |   Component   |      |
+            |_______________|      /\
+                     ^             \/
+_______________      |     _________________
+|              |     |     |               |
+|     Leaf     |___________|   Composite   |
+|______________|           |_______________|
