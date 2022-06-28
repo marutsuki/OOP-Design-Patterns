@@ -1,0 +1,24 @@
+Pattern name: Bridge
+
+Problem: How do we solve the problem of many combinations of two or more particular set of domains?
+
+Eg. We are designing a game where there can be different entities, and these entities can each hold different weapons.
+
+How do we design an application so that we can support this?
+
+We can obviously create a Entity superclass that governs all entities.
+Then we could create an entity for each possible combination of entity and weapon.
+Eg.
+
+HumanSpear
+HumanSword
+HumanClaws
+MonsterClaws
+
+This, as you probably can tell, is very inefficient and is an anti-pattern to the open-closed principle; we need to create
+up to n new classes (n = number of existing entities) for every new weapon.
+
+Solution: The Bridge pattern states that we should separate the two components into separate hierarchies.
+For this example, we will "bridge" the Entity itself from the Weapon, and now we can mix and match Entities and Weapons at runtime.
+
+

@@ -16,7 +16,7 @@ import java.util.List;
  * For example, what if we wanted to know all the objects that implement X interface? Then Y interface?
  * Obviously, an object doesn't have to implement X if it implements Y.
  * The naive solution is to create multiple collections for each type, and store potentially multiple duplicate references.
- * 
+ *
  * Solution: Use reflection to allow querying through the metadata of the classes while keeping the objects
  * under a central single interface.
  */
