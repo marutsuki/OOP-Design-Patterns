@@ -1,0 +1,53 @@
+Pattern name: Decorator
+
+Problem: How does one design a system so that there are flexible ways to add functionality to a specific process
+and configurable at runtime in the user's discretion?
+
+Scenario:
+Imagine you are working for a company called NeverSatisfied. Your boss one day gives you a task to design a
+generic messaging system that allows messages to be sent to some third party application through a simple interface.
+
+Seems simple enough. You implement the MessageService class, which presents a simple interface for sending messages:
+send().
+
+Things are working well for you and business, but then one day your boss comes to you and says "there isn't
+enough logging being done, I need you to log everytime a message is sent".
+
+Okay, that's a simple change, so you add a line of code to log the message.
+
+Then your boss comes back again and says "Okay, we need to introduce a notification system for mobile users
+and encryption of outgoing messages".
+You feel like this is starting to show a pattern, but you ignore it and implement the notification
+and encryption functionality.
+
+Then your boss comes to you and says "Sorry, take back the encryption functionality, we don't need it". Okay, you
+are at your limit but you carry on and remove the encryption functionality.
+
+Have you noticed a pattern? Probably, but the main issue here is that you are touching the same piece of code over and
+over again, adding lines, deleting lines, what if your boss wants the encryption functionality back? Are you just going
+to write the same code again? Perhaps keep it in a .txt file so you can copy it over in case that happens.
+
+Even worse, what if your MessageService will need to cater to multiple third parties? Each third party may
+have different preferences. A third party may use the message to put on a website, so you need to sanitize the HTML
+in case of cross site scripting. Another party may not need sanitization of messages but require encryption.
+And so on...
+
+Solution: The decorator pattern says, design a wrapper based system where wrappers can contain other wrappers,
+recursively until the base object. These wrappers can be assigned freely and independently for
+each instance of the base class.
+
+For this scenario, we will design the Base MessageService class, which does nothing but the very basic functionality
+of sending a message.
+
+Then, we design a supertype MessageServiceDecorator that is also of MessageService to represent our wrappers.
+
+Each decorator will need to be constructed with an instance of MessageService as its wrappee.
+
+Upon the send() call to the decorator, it will do its part and delegate it to the wrappee to handle whats left.
+
+This way, we can freely choose which decorators to add for which instance:
+If your boss doesn't want encryption anymore, just don't add the encryption decorator, don't remove the code,
+he might want it back later.
+
+If a party requires HTML sanitization because they display messages on websites while others don't - just add
+a sanitizer decorator for that party and don't add the decorator for other third parties.
