@@ -1,0 +1,61 @@
+Pattern name: Flyweight
+
+Problem: How do we manage large pools of objects sharing lots of identical properties while not filling up our allocated
+memory?
+
+Scenario: Imagine you are tasked with designing a game engine for a 2d platformer. You decided that you will represent
+each pixel as an object.
+
+Each pixel has several properties, including it's position in the game and its rgb and transparency.
+
+You didn't think about how efficient your system actually is and when your friend with a toaster PC decides
+to try it out, his PC literally dies.
+
+You do a simple quick calculation and realize that:
+
+Each pixel holds 6 properties.
+3 chars (rgb) = 1 + 1 + 1 bytes
+1 double (a) = 8 bytes
+2 ints (x,y) = 4 + 4 bytes
+
+The amount of space taken by just the pixel properties, ignoring all the other space being used for an object:
+n*19 bytes
+
+Where n = number of pixels
+
+Let's say for a 1920*1080 pixel map, this would be 39398400 bytes or 37.5MB
+
+Solution: The flyweight pattern suggests that we help mitigate redundancy by creating a flyweight, an immutable object
+that holds values likely to be shared by the many objects in question.
+
+Instead of each Pixel having an rgba set of values,
+one can observe that a pixel map in a game is likely going to have many identical pixel rgba values. For example, the
+sky would probably be almost the same set of rgba values. Grass probably will be composed of a combination of 3 or so
+different rgba values.
+
+We extract out the values likely to have lots of overlap, in this case the rgba values and put them into a flyweight
+object.
+
+The flyweight pool should be designed that each unique combination of values should only have a single instance.
+
+Now, instead of each Pixel having 6 properties, they will each only have 3 properties (1 for the refernce
+to the flyweight object). Furthermore, the flyweight objects will be few in numbers since they all are unique.
+
+The amount of space taken by the objects needed to represent the Pixels is now
+
+n*a + u*b
+
+n = number of pixels
+a = size of unique properties not in the flyweight
+u = unique number of rgba combinations being used
+b = size of non-unique properties cached in the flyweight
+
+= n*12 bytes + u*11 bytes
+
+Note that we are assuming 4 bytes for an object reference which is usual for 32/64-bit machines.
+
+This means that for a 1920 * 1080 pixel map with 40 unique rgba combinations, we are using up:
+
+25660800 + 440 bytes = 24.5MB just with pixel properties.
+
+This is an improvement of about 33%
