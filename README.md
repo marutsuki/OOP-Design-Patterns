@@ -1,7 +1,8 @@
-# OOP-Design-Patterns
-This is an ongoing project to demonstrate my enthusiasm for Object Oriented design. 
+<img src="/misc/logo.png">
+<h1 align="center">OOP-Design-Patterns</h1>
+<p align="center">This is an ongoing project to demonstrate my enthusiasm for Object Oriented design. 
 Through this repository, you can find sample code of some of the many design patterns dominant in the object oriented paradigm.
-Feel free to reference the code in your own works at your own benefit.
+Feel free to reference the code in your own works at your own benefit.</p>
 
 ## Table of Contents  
 [Introduction](#introduction)  
