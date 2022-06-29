@@ -35,10 +35,10 @@ And to those that disagree with OOP. I'm not against you, some of your arguments
 | Builder | Done |
 | Singleton | Done |
 | Prototype | Done |
-| Adaptor | Not started |
-| Bridge | Not started |
-| Composite | Not started |
-| Decorator | Not started |
+| Adaptor | Done (Can be improved) |
+| Bridge | Done |
+| Composite | Done |
+| Decorator | In progress |
 | Facade | Not started |
 | Flyweight | Not started |
 | Proxy | Not started |
