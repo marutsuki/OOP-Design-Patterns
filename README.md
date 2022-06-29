@@ -72,8 +72,8 @@ I do not particularly have a special thing for Java. It's simply a language I am
 | Adaptor | Done (Can be improved) |
 | Bridge | Done |
 | Composite | Done |
-| Decorator | In progress |
-| Facade | Not started |
+| Decorator | Done |
+| Facade | Done |
 | Flyweight | Not started |
 | Proxy | Not started |
 | **Behavioural** | |
