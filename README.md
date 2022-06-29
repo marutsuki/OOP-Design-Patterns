@@ -31,7 +31,7 @@ I found out that I had been using the wrong logic in my duplicated code. Yep, th
 Had I actually known the rules for writing maintainable code, that 1 hour could've easily been reduced to like only 10 minutes.
 
 Fast forward a year or so and I am taking an object-oriented design subject at university, intrigued by the idea of patterns, I did the biggest nerd move and spent my spare time
-reading up design patterns, specifically GRASP. Ever since, I have actually seen improvement in the speed taken to write and refactor code, and as much as I hate to admit it, 
+reading up design patterns, specifically GoF. Ever since, I have actually seen improvement in the speed taken to write and refactor code, and as much as I hate to admit it, 
 object-oriented design has become my favourite topic in all my studies.
 
 That being said, I feel like I haven't had the opportunity to exercise all these design patterns. So why not just do it on your very own? Yep, so that's my motivation for this project.
@@ -60,7 +60,7 @@ The sample code has been grouped into subpackages based on their pattern, availa
 I do not particularly have a special thing for Java. It's simply a language I am very familiar with so I chose it. The many patterns you see here can be done in almost any other object-oriented language.
 
 ## Progress
-##### GRASP
+##### GoF
 | Pattern | Status |
 | --- | --- |
 | **Creational** | |
