@@ -12,8 +12,12 @@ Eg.
 
 HumanSpear
 HumanSword
+HumanBow
 HumanClaws
+MonsterSpear
+MonsterSword
 MonsterClaws
+MonsterBow
 
 This, as you probably can tell, is very inefficient and is an anti-pattern to the open-closed principle; we need to create
 up to n new classes (n = number of existing entities) for every new weapon.
@@ -21,4 +25,20 @@ up to n new classes (n = number of existing entities) for every new weapon.
 Solution: The Bridge pattern states that we should separate the two components into separate hierarchies.
 For this example, we will "bridge" the Entity itself from the Weapon, and now we can mix and match Entities and Weapons at runtime.
 
+We will create two superclasses:
 
+Entity           Weapon
+
+And then let each Entity contain a Weapon
+
+For the example above:
+
+Entity           Weapon
+-----------------------
+Human            Spear
+Monster          Sword
+                 Claws
+                 Bow
+                 
+For this example, we've reduced the amount of classes needed to 6. Although this may not seem like a huge improvement, the growth rate is much slower
+and one can expect big differences for much bigger sets.
