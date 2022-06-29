@@ -1,13 +1,26 @@
-<img src="/misc/logo.png">
-<h1 align="center">OOP-Design-Patterns</h1>
+<h1 align="center">
+  <img alt="logo" src="/misc/logo.png"><br>
+  OOP-Design-Patterns
+</h1>
+  
 <p align="center">This is an ongoing project to demonstrate my enthusiasm for Object Oriented design. 
-Through this repository, you can find sample code of some of the many design patterns dominant in the object oriented paradigm.
-Feel free to reference the code in your own works at your own benefit.</p>
+  Through this repository, you can find sample code of some of the many design patterns dominant in the object oriented paradigm.
+  Feel free to reference the code in your own works at your own benefit.
+</p>
+
+<p align="center">
+  <img alt="license badge" src="https://img.shields.io/github/license/lucien7789/OOP-Design-Patterns">
+  <img alt="last commit" src="https://img.shields.io/github/last-commit/lucien7789/OOP-Design-Patterns">
+  <img alt="commit activity" src="https://img.shields.io/github/commit-activity/m/lucien7789/OOP-Design-Patterns">
+  <img alt="code size" src="https://img.shields.io/github/languages/code-size/lucien7789/OOP-Design-Patterns">
+</p>
 
 ## Table of Contents  
+
 [Introduction](#introduction)  
+[What Is This Project?](#what-is-this-project)  
 [Progress](#progress)  
-[Get Started](#get-started)
+[Getting Started](#getting-started)
 
 ## Introduction
 When I decided to write my first Java app, I had no experience nor foundation in the fundamentals of object-oriented programming.
@@ -28,14 +41,34 @@ and industry.
 
 And to those that disagree with OOP. I'm not against you, some of your arguments I totally can get. However, OOP is probably here to stay and object-oriented design is the best way we cope with it.
 
+## What Is This Project?
+
+**What is this project in one sentence?**
+
+This project is a collection of sample Java code demonstrating the many design patterns prevelant in the object-oriented paradigm.
+
+**So is this not an application?**
+
+This repository is not an application according to the definition. This project has been designed to be viewed rather than run. Although there are test suites which demonstrate the sample code written.
+
+**What can I get out of it?**
+
+The sample code has been grouped into subpackages based on their pattern, available through _/oopDesignPatterns/src/main/java_. Each set of sample classes contains an explanation (either through an explicit text file or as code comments). You can use this as a refresher on your object-oriented design skills as well as see an actual implementation of the many patterns.
+
+**Why Java?**
+
+I do not particularly have a special thing for Java. It's simply a language I am very familiar with so I chose it. The many patterns you see here can be done in almost any other object-oriented language.
+
 ## Progress
 ##### GRASP
 | Pattern | Status |
 | --- | --- |
+| **Creational** | |
 | Factory family | In progress |
 | Builder | Done |
 | Singleton | Done |
 | Prototype | Done |
+| **Structural** | |
 | Adaptor | Done (Can be improved) |
 | Bridge | Done |
 | Composite | Done |
@@ -43,6 +76,7 @@ And to those that disagree with OOP. I'm not against you, some of your arguments
 | Facade | Not started |
 | Flyweight | Not started |
 | Proxy | Not started |
+| **Behavioural** | |
 | Chain of Responsibility | Not started |
 | Command/Visitor | Not started |
 | Observer | Not started |
@@ -51,29 +85,48 @@ And to those that disagree with OOP. I'm not against you, some of your arguments
 | Template method | Not started |
 | Mediator | Not started |
 
-## Get Started
-1. Clone the repository first.
-Copy the HTTP/SSH link:
-```
-git clone <repository-link>
-```
+## Getting Started
+This codebase is not designed with the intention of being run, but rather to be observed and looked at. As such, there is no application class with the main() entrypoint as you would expect in a Java application.
 
-2. Install the dependencies
+However, the project does come with several test suites made to demonstrate the sample code that can be run.
+
+**Downloading JDK 18 or a Java-catered IDE**
+
+You will need JDK 18 to run the test suites, which you can get here:
+
+<a href="https://www.oracle.com/java/technologies/downloads">Get JDK 18</a>
+
+Otherwise, you can install JDK 18 as part of a Java-catered IDE such as Eclipse or IntelliJ:
+
+<a href="https://www.eclipse.org/downloads/">Get Eclipse</a>
+
+<a href="https://www.jetbrains.com/idea/download/">Get IntelliJ</a>
+
+**Cloning the repository**
+
+Next, you will need to get the files onto your local computer:
+
+You can do this by selecting the _Code_ dropdown at the top of the GitHub repository page.
+
+Then select your preferred way of getting the files.
+
+**Installing the dependencies**
+
+If you just want to read the code, then you can skip this part.
+Otherwise, to run the test suites you will need to install the dependencies from the maven remote.
+
+In your command line interface:
 ```
 mvn clean && mvn compile
 ```
+**Running the test suites**
 
-3. Navigate the codebase
-This project is designed to be read rather than run.
-There are test suites designed to show that the implementations are correct.
-
-If you want to run the test cases, I highly recommend using an IDE like Eclipse or IntelliJ.
-
-Otherwise, you can run:
+To run all the test suites:
 ```
 mvn test
 ```
+
 Or if you want to run a specific test suite:
 ```
-mvn -Dtest=<ClassName> test
+mvn -Dtest=<TestClassName> test
 ```
