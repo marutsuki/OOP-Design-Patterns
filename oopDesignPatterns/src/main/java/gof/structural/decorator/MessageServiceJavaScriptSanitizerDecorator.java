@@ -15,6 +15,6 @@ public class MessageServiceJavaScriptSanitizerDecorator extends MessageServiceDe
     @Override
     public void send(String message) {
         String escaped = Jsoup.clean(message, Safelist.basic());
-        getWrappee().send(message);
+        getWrappee().send(escaped);
     }
 }

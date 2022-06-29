@@ -1,34 +1,17 @@
 package gof.structural.decorator;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class MessageServiceBase implements MessageService {
 
-    private boolean dead = false;
-    private int health = 100;
-    private int attackPower = 0;
-
-    private double x = 0;
-    private double y = 0;
-    @Override
-    public void attack(MessageService monster) {
-        monster.takeDamage(attackPower);
+    private MessageReceiver messageReceiver;
+    public MessageServiceBase(MessageReceiver messageReceiver) {
+        this.messageReceiver = messageReceiver;
     }
-
     @Override
-    public void move(double x, double y) {
-        double dX = x - this.x;
-        double dY = y - this.y;
-
-        double dist = Math.hypot(dX, dY);
-
-        this.x += dX / dist;
-        this.y += dY / dist;
-    }
-
-    @Override
-    public void takeDamage(int damage) {
-        this.health -= damage;
-        if (this.health <= 0) {
-            dead = true;
-        }
+    public void send(String message) {
+        log.info("Sending message: {}", message);
+        messageReceiver.receive(message);
     }
 }
