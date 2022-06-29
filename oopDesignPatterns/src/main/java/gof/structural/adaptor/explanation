@@ -1,0 +1,20 @@
+Pattern name: Adaptor
+
+Problem: How do we unify imcompatible third party interfaces so that we can use them interchangeably?
+
+Scenario: You are tasked with designing an application that relies 3 third party supplied interfaces that allow a message to be sent to a particular queue (For the code, we mimic this using Log4j).
+However, the three APIs given to us come from different administrative domains and thus do not share a common interface.
+
+Interface one: Allows us to send a "wave" message and a generic "says {}" message.
+Interface two: Allows us to send a greet message which waves and says "Hi there"
+Interface three: Allows us to control the entire message being sent, simply a send() method.
+
+What if we want to make our application configuration based so that we can change the implementation through a single property?
+
+Solution: Well, the interfaces are not unified, which means that the APIs cannot be used with polymorphism (yet).
+
+So, we will create our own mini-Facades for each of the APIs and subtype the facades to a common interface.
+This way, we have essentially 3 wrapper classes which are interchangeable with other that contains their unfriendly interface.
+
+Now, we can use the wrapper classes in replacement of the original classes and switch them up at will.
+These wrapper classes are known as adaptors.
