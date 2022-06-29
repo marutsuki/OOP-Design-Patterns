@@ -1,0 +1,33 @@
+Pattern name: Facade
+
+Problem: How do we connect our code with a complex and vast and unpredictable set of subsystems while being impervious
+as possible to changes to the uncontrollable dependencies?
+
+Scenario: Imagine that you want to create an application for your restaurant, luckily a contractor has the perfect
+package for you; their own-made everything you need to create a ordering system bundled together.
+
+You are excited about their proposal, but you become overwhelmed by the complexity by their features, in fact
+they have some services you have no need for, including a friendly API for PayPal (Who uses PayPal for food anyways?)
+Note: These irrelevant services I did not include in the sample code - just imagine that they're also there.
+
+You start connecting your classes to these items, your OrderController to some of the classes, your PaymentController
+to some other classes, etc. There are a lot of dependencies flying around the classes, some between yours, some between
+theirs, and the worst, lots between yours and theirs. It's all an entangled spiderweb.
+
+Suddenly, with no warning, they decided to discontinue the version they proposed to you, and their new version...
+it's good, but let's say, it's completely different from what you used.
+
+Now you realize that you need to change up code here and there, everywhere in your codebase, wherever you had a reference
+to one of their modules (which could potentially be scattered across many different classes), you potentially have to refactor.
+
+Was there a better way in handling this mess?
+
+Solution: The Facade pattern says that the connection between a reliable subsystem and unreliable subsystems should
+be provided through an isolated interface(s). That is, minimize the dependencies to the unpredictable subsystems
+to as few modules as possible. You can think of it as multiplexing and demultiplexing. All your classes talk
+to the third party classes through a single (or potentially few) tunnel. This tunnel is the isolated interface(s).
+
+This one or two interface(s) are known as facade(s). They should be designed so that:
+1. They simply the interface to the complex subsystem
+2. They provide full abstraction away from the complex subsystem
+3. They provide enough functionality for the user to rely on them rather than the complex subsystem directly
