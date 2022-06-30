@@ -8,7 +8,18 @@ public class HttpDispatcher {
     private static HttpDispatcher instance;
     private List<HttpRequestHandler> handlerChain = new ArrayList<>();
     public Function<HttpRequestHandler, HttpRequestHandler> handlerSupplier =
-            (caller) -> handlerChain.get(handlerChain.indexOf(caller) + 1);
+            (caller) -> {
+        var index = handlerChain.indexOf(caller) + 1;
+        if (handlerChain.size() == index) {
+            /**
+             * Return empty handler to mark the end of the chain
+             */
+            return (HttpRequestHandler) (httpRequest, httpResponse, next) -> {
+                return;
+            };
+        }
+        return handlerChain.get(index);
+    };
     private HttpDispatcher() {}
 
     public static HttpDispatcher getInstance() {
