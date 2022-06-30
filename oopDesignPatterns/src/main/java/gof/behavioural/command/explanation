@@ -1,0 +1,34 @@
+Pattern name: Command
+
+Problem: How do we design a system where the user can design their own function implementations that they can plug in
+to our system while allowing them to be passed around, queued, scheduled and interchangeable with each other?
+
+Scenario: Imagine you are tasked with designing a GUI system. Let us focus on the Button, when the user clicks a Button
+a response usually happens, for example, the GUI system could redirect the user, save data, or post an ajax request to
+another server.
+
+However, we're not here to design an application with the GUI, we are here to design the GUI itself. Thus, we do not
+know in advance what the user wants to do when a specific button is clicked. How do we guarantee this flexibility of
+letting the users design their own features that can be plugged and played into our own GUI system?
+
+Well, the first idea would be to expose to the user just the button class and allow them to subtype the button everytime
+a new functionality is needed. But clearly, that will not scale well, imagine creating a button for all the possible features
+a website may use them for.
+
+The problem is that we are abstracting the functionality at the wrong level.
+
+Solution: The command pattern suggests that we abstract away and encapsulate the function/method into an object,
+which then can be passed around like any normal variable.
+
+In order to achieve this, we can create a superclass with a single exec() method representing the method used to call
+the function. Then, the users can design their own implementations of the class and inject them into our interfaces
+so that the user specific functions will be executed upon our control. Furthermore, this design will allow such
+"functions" to store state beyond the execution context of the function itself, which could potentially be used in
+future calls.
+
+As for the GUI example, we can design an EventListener interface, which is an observer class that executes an
+unknown function upon notification. Then we can create the EventListenerCallback superclass which will be our command object.
+This class contains an exec() method which will be called when the EventListener is notified.
+
+Now, we leave the implementation of exec() to the user, if they want to redirect the user to a different page
+they can create an appropriate implementation for that, if they want to submit a form they can implement that as well.
