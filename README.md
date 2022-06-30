@@ -74,10 +74,10 @@ I do not particularly have a special thing for Java. It's simply a language I am
 | Composite | Done |
 | Decorator | Done |
 | Facade | Done |
-| Flyweight | Not started |
-| Proxy | Not started |
+| Flyweight | Done |
+| Proxy | Done |
 | **Behavioural** | |
-| Chain of Responsibility | Not started |
+| Chain of Responsibility | Done |
 | Command/Visitor | Not started |
 | Observer | Not started |
 | State | Not started |
