@@ -1,0 +1,38 @@
+Pattern name: Iterator
+
+Problem: Collections are the most common ways of aggregating data, an example are Lists. To traverse a list is easy,
+the elements are stored in sequential order, ask any programmer and they'll comfortably show you how in their language
+of choice.
+
+However, there are much more complex data structures; trees, graphs, stacks, etc. that involves multiple ways
+of traversing them.
+
+Do you often find writing the same code again and again for iterating over lists? Yes, that's okay, its simple enough.
+What if you need to write out your own traversal algorithm for other data structures, each time with separate logic?
+
+You'll find it painfully redundant writing the same graph traversal algorithms over and over again. But you can't
+reuse the same code because the logic and processing that makes up the code is not very reusable.
+
+Solution: The iterator pattern suggests to abstract away the traversal functionality into a designated object that
+knows how to get the next element in the protocol and provides a clean interface for doing so.
+
+Using iterators, we separate the code concerned with the processing logic (eg. finding the branching factor of a graph)
+away from the actual traversal of the data structure - making it much more reusable in the future for other purposes.
+
+Furthermore, the use of iterators abstracts away the complexities of the traversal logic and such algorithms behind a
+clean interface where the user only needs to worry about a few methods, namely hasNext() and next().
+
+hasNext() checks if there are still elements left - this is important for the user to know when to terminate
+
+next() fetches the next element.
+
+For this example, we have created a simple BinaryTree data structure that provides an iterator() method that returns
+an Iterator with 3 modes of operation: inorder, preorder, postorder.
+
+Note that the Iterator interface is already supplied by JDK.
+
+Most modern programming languages and libraries have their built in iterators - so you probably won't need to go
+implementing your own Iterators unless its a weird traversal algorithm or a data structure no one's ever seen before.
+
+That being said, although you likely won't need to use this pattern in your own work, this is a highly prevalent
+design pattern for people designing foundational programming frameworks.
