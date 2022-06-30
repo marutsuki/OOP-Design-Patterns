@@ -1,0 +1,29 @@
+Pattern name: Proxy
+
+Problem: How do we control access to a third party object? As well as add small additional features that do not alter
+the original behaviour?
+
+Scenario: Imagine you are tasked with introducing a video upload feature to your company's microservices system of a
+social networking web app.
+Fortunately, you have a third party library at the ready, which contains all the functionalities needed
+to implement your video sharing feature.
+
+However, you realize that the service object provided contains too many functionalities and you were also
+not impressed with the logging provided by their services. Lastly, the original service interface contains many
+functionalities you don't want to expose to end users. You could simply just not use the unwanted methods in your own
+applications, but what if someone else in your company decides to use the library? Will they be aware of the illegal methods?
+How do we prevent someone from accidentally exposing these unwanted functionalities to the end user?
+
+Solution: The proxy pattern suggests that we create an intermediate service class (the proxy) which exposes a subset
+of the functionalities provided by the original service with the exact same interface.
+
+Each method in the original class will or will not have it's equivalent in the proxy class.
+
+We can provide additional functionalities in the proxy before passing it to the service class:
+- Logging
+- Authentication
+- Cryptographic Operations
+- Alteration of fields
+
+For this example, we may want to add additional logging for some methods, as well as completely hide a function
+of the original service using the proxy.
