@@ -80,9 +80,9 @@ I do not particularly have a special thing for Java. It's simply a language I am
 | --- | --- |
 | **Creational** | |
 | Factory family | In progress |
-| Builder | Done |
-| Singleton | Done |
-| Prototype | Done |
+| Builder | Explanation can be improved |
+| Singleton | Explanation can be improved |
+| Prototype | Explanation can be improved |
 | **Structural** | |
 | Adaptor | Done (Can be improved) |
 | Bridge | Done |
