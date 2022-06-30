@@ -1,0 +1,36 @@
+Pattern name: Chain of Responsibility
+
+Problem: How do we design a flexible system where the user can configure how and in what order a request is processed
+while allowing the steps to be mixed and matched without refactoring the code?
+
+Scenario: Imagine you are tasked with designing a HTTP server. You decide that first of all, you need to check
+that the HTTP fields are valid (eg. version).
+
+After implementing the check, you write the logic for sending a response. Easy enough.
+
+Code is working and your boss is satisfied.
+
+Then, one day, your HTTP server was selected to be used for a online shopping site. However, as shopping sites
+contains highly sensitive data, your HTTP server needed authentication. So you implement the logic for authentication.
+
+Then, another day, your HTTP server was to be used for a generic profile web page. But the client doesn't
+want any form of authentication, the users should be able to view his profile anytime anywhere.
+
+So you implement a configurable property which is checked before attempting authentication.
+
+So far, this works, but what if there's more things to do? What if a client doesn't want to work with Strings for
+the body but rather a Map which better represents JSON? What if another client wants to work with XML data?
+What if another client wants authentication in one endpoint and no authentication in another endpoint?
+What if there needs to be 20 new endpoints?
+Do you really want to touch the same piece of code over and over again?
+
+Solution: The CoR pattern suggests that we separate each business process into an isolated handler. Then chain the handlers
+together so when one handler finishes, it dispatches the task to the next handler (or not if it chooses to terminate preemptively).
+
+This way, we can come up with a vast library of handlers, eg. a JSONParser, an XMLParser, an AuthenticationValidator,
+a Serializer, a SyntaxValidator, etc. and let the clients choose which ones they want and setup in the order they want them.
+
+The CoR pattern is highly revolved around SOLID principles:
+Single responsibility principle: Each business process is isolated into it's own handler
+Open-Closed principle: When a client requires a different set of steps or order, they can do so without rewriting code
+
