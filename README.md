@@ -18,7 +18,8 @@
 ## Table of Contents  
 
 [Introduction](#introduction)  
-[What Is This Project?](#what-is-this-project)  
+[What is a Design Pattern?](#what-is-a-design-pattern)  
+[What is this Project?](#what-is-this-project)  
 [Progress](#progress)  
 [Getting Started](#getting-started)
 
@@ -41,7 +42,21 @@ and industry.
 
 And to those that disagree with OOP. I'm not against you, some of your arguments I totally can get. However, OOP is probably here to stay and object-oriented design is the best way we cope with it.
 
-## What Is This Project?
+## What is a Design Pattern?
+
+Have you ever came across a mind fuzz while writing code? That is, you need to achieve a particular task and you have a few ideas on how to design your system
+so that it can work, but you are unsure of which path to take, you don't see the full picture and worried whether or not your solution is actually good or even implementable?
+
+As a programmer, it is almost certain you will come across similar situations and problems millions of other programmers encounter every year. Despite many of these
+problems belonging to entirely different domains (perhaps a banking app, or an online shopping web app), if we abstract away the context, many of these issues are almost identical in structure and nature.
+
+To combat these reoccuring problems, so-called design patterns are invented so that they can be reused and adapted by a troubled programmer to find a way around his design roadblock.
+
+By definition, a design pattern is a solution to a reoccuring common problem.
+
+Object-oriented design patterns are solutions to reoccuring problems in the context of object-oriented programming.
+
+## What is this Project?
 
 **What is this project in one sentence?**
 
@@ -78,8 +93,8 @@ I do not particularly have a special thing for Java. It's simply a language I am
 | Proxy | Done |
 | **Behavioural** | |
 | Chain of Responsibility | Done |
-| Command/Visitor | Not started |
-| Observer | Not started |
+| Command/Visitor | In progress |
+| Observer | Done |
 | State | Not started |
 | Strategy | Not started |
 | Template method | Not started |
