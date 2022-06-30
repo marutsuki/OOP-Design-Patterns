@@ -1,0 +1,54 @@
+Pattern name: Observer
+
+Problem: How do we a design system where several objects are dependent on the state of a particular subject while minimizing
+coupling between the entities.
+
+Scenario:
+Imagine you are the lead for designing the security system of a new building.
+
+The features you need to support:
+- An activity monitoring system that delivers monitoring data to any client application that requires it.
+- The system should be designed so that the client applications can be added and removed at will, for example;
+employees may decide that they want to tune in on the monitoring system, then when they are on leave they want to
+unsubscribe from the monitoring alerts.
+- There needs to be an alarm system that triggers when the data it receives seems abnormal.
+- There needs to be an automatic door system that locks when there is a high likelihood of an intruder.
+- The system needs to support one of the company's existing mobile phone notification apps.
+
+This seems like a lot, at first you decide that you decide you will have your individual client applications
+poll the activity monitoring system for updates.
+
+But you soon find out that this is inefficient, and most of the time, the monitoring system does not have abnormal
+analytics.
+
+Then you decide to hold a reference to each client application that needs the data. However, you realize eventually
+that this method is flawed too in that it's not extendable, you would need to account for every new type of client.
+
+Solution:
+The observer pattern suggests that we design the system in the form of a publish-subscribe model.
+
+There are two main entities in this pattern:
+Publisher - The subject being observed and central to the system
+Subscriber - The clients that wishes to know of the Publisher's state and knowledge.
+
+Every client that wishes to be contacted by the publisher would need to share a common interface.
+
+This common interface should have a update method that allows the publisher to notify the subscribers.
+
+This common interface acts as a form of polymorphism to decouple the publisher away from each individual client
+class. The publisher does not need to know each individual client specifically - all it cares about is that it is
+a Subscriber and there is a common way of notifying them all.
+
+Thus, one can introduce a new subscriber class without needing to modify the code in the publisher.
+
+For this example, we will design a generic Publisher/Subscriber system that allows them to specify a common interface
+for which they will talk to each other through (known as the context).
+
+Then, we will have the ActivityMonitor class be the Publisher, which will notify it's subscribers whenever there is abnormal
+activity according to it's own judgement.
+
+Finally, we have the Subscribers - AlarmSystem, AutomaticDoorSystem and PhoneClientApi, each subtyping a common interface,
+the Subscriber.
+
+Now whenever the ActivityMonitor believes there is notification-worthy level of data, it will notify all it's subscribers
+and let them decide what to do with the information.
