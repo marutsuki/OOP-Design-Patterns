@@ -1,6 +1,6 @@
 Pattern name: Adaptor
 
-Problem: How do we unify imcompatible third party interfaces so that we can use them interchangeably?
+Problem: How do we unify incompatible third party interfaces so that we can use them interchangeably under the same interface?
 
 Scenario: You are tasked with designing an application that relies 3 third party supplied interfaces that allow a message to be sent to a particular queue (For the code, we mimic this using Log4j).
 However, the three APIs given to us come from different administrative domains and thus do not share a common interface.
@@ -9,12 +9,20 @@ Interface one: Allows us to send a "wave" message and a generic "says {}" messag
 Interface two: Allows us to send a greet message which waves and says "Hi there"
 Interface three: Allows us to control the entire message being sent, simply a send() method.
 
-What if we want to make our application configuration based so that we can change the implementation through a single property?
+What if we want to design our system so that we can flexibly swap between the APIs depending on the specific user needs?
 
-Solution: Well, the interfaces are not unified, which means that the APIs cannot be used with polymorphism (yet).
+The first thought is that we could use subtype polymorphism.
 
-So, we will create our own mini-Facades for each of the APIs and subtype the facades to a common interface.
-This way, we have essentially 3 wrapper classes which are interchangeable with other that contains their unfriendly interface.
+However, the APIs are externally provided, and we do not have control over their incompatible code.
 
-Now, we can use the wrapper classes in replacement of the original classes and switch them up at will.
-These wrapper classes are known as adaptors.
+Solution: 
+The issue is that the interfaces are not unified, which means that the APIs cannot be interchanged with subtype polymorphism.
+
+However, we cannot simply force the interfaces to be under the same common interface because they are external and we
+have no control over such APIs.
+
+To workaround this, we will create our own wrappers for each of the APIs and subtype the wrappers to a common interface.
+This way, we have essentially 3 wrapper classes interchangeable with other, each manipulating their designated uncontrollable interface.
+
+Now, we can use these wrapper classes in replacement of the original classes and interchange them at will according to
+the specific user needs using polymorphism since they are under the same common interface.

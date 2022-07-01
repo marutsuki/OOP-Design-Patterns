@@ -1,5 +1,9 @@
 package gof.creational.factory;
 
+import gof.creational.factory.factoryMethod.FactoryMethod;
+import gof.creational.factory.factoryMethod.FactoryMethodOne;
+import gof.creational.factory.factoryMethod.FactoryMethodThree;
+import gof.creational.factory.factoryMethod.FactoryMethodTwo;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

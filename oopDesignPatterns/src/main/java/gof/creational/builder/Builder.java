@@ -1,18 +1,5 @@
 package gof.creational.builder;
 
-/**
- * Pattern name: Builder
- *
- * Problem: How do we effectively manage complex creation logic where we want to give the user the flexibility on how
- * the object is created? That is, allow the user to tweak certain fields while in full control on how the object is built?
- *
- * The naive solution would be to create a constructor for each possible combination or logic
- *
- * Solution: Create a helper builder class that holds a partially completed target object, and expose methods that allow the user to
- * change the target object until they are done.
- *
- * A code friendly way of making a builder involves returning the builder itself so that methods can be continuously chained.
- */
 public class Builder {
 
     public BuilderIntermediate init() {

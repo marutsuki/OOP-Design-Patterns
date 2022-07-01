@@ -1,26 +1,11 @@
-package gof.creational.factory;
+package gof.creational.factory.simpleFactory;
 
+import gof.creational.factory.Dummy;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Properties;
-
-/**
- * Pattern Name: Simple Factory
- *
- * The simple factory is a solution to the problem of incohesive code where a user of a particular object is also responsible
- * for the creation of that object. By separating object creation into a separate module, we are separating the concerns of object creation
- * away from the user.
- *
- * Note that the main method getDummy() is very simple. There is not much logic involved in creating the dummy classes;
- * all of them share the same outward appearance and there is no difference in instantiation. However, realistically, some objects
- * may involve different construction code logic, such as different constructor method signatures, this would probably need to be handled
- * with by for example a switch case statement.
- *
- * If the logic around creating an object is much more complex and involves many possible combination choices, it may be wiser to use
- * the Builder pattern.
- */
 @Log4j2
 public class SimpleFactory {
 

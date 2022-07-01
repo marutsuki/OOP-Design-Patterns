@@ -1,0 +1,36 @@
+Pattern name: Singleton
+
+Problem: How do we enforce up to a single instance of a class? How do we allow global access to an object while following
+the object-oriented paradigm?
+
+Solution: Create a class whose constructor can only be accessed by itself, which effectively prevents the user from
+creating the object themselves.
+
+The class should hold a static instance of itself for which it instantiates.
+
+Finally, a static getInstance() method should be provided to the external user to allow them access to this one object.
+
+Controversy:
+The singleton method is perhaps the most controversial design pattern created.
+
+It is said to be a lazy workaround for managing dependencies.
+
+The biggest issue of the singleton is, it is really hard to track the dependencies of an object.
+
+Usually, when an object requires another object, it stores a reference to the other object or specifies in the function
+parameters.
+
+However, in the case of Singletons, they can be accessed anywhere and anytime, we could have a deceitful HelloWorld
+class with no properties and a single method: public static void helloWorld();
+
+This may seem innocent at first, but what if it is using a Singleton inside the method?
+
+We one day might change the Singleton implementation, and of all a sudden our program fails to compile.
+After searching around the massive codebase, you realize that the HelloWorld class has been using an outdated signature of
+the provided Singleton method.
+
+This example may sound trivial, but what if we have multiple references in a complex system? Even worse, the classes
+are probably much more complex than HelloWorld.
+
+Going through each class figuring out what went wrong is hard enough. Having added the difficulty of not being able to
+tell what could be wrong through the method signatures and class properties make it much worse.

@@ -1,4 +1,7 @@
-package gof.creational.factory;
+package gof.creational.factory.factoryMethod;
+
+import gof.creational.factory.Dummy;
+import gof.creational.factory.DummyImplThree;
 
 public class FactoryMethodThree extends FactoryMethod {
     @Override

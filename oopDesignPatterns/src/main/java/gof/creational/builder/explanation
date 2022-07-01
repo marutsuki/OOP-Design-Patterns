@@ -1,0 +1,26 @@
+Pattern name: Builder
+
+Problem: How do we effectively manage complex creation logic where we want to give the user the flexibility on how
+the object is created? That is, allow the user to tweak certain fields while in full control on how the object is built?
+
+Imagine a complex class that contains many fields decided at runtime in many forms.
+
+How would you go about creating this class?
+
+A possible solution is to create a constructor for each possible combination of fields as well as every algorithm
+that could be used.
+
+However, this creates a lot of redundant code and your class will look very ugly.
+
+A better solution: Create a helper builder class that holds a partially completed target object, and expose methods that
+allow the user to modify the target object under construction until they decide they are finished.
+
+Essentially, we construct an object with it's fields mostly uninitialized and allow the user to change fields step by step
+through the builder methods while hiding the object under construction from the user itself.
+
+Finally, when the user wants the target object, they call build() and retrieves the finished object.
+
+NOTE: A code friendly way of making a builder involves returning the builder itself so that methods can be
+continuously chained.
+
+Eg. builder.init().addField().changeField().removevField().build()

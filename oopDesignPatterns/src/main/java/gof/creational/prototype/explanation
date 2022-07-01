@@ -1,0 +1,21 @@
+Pattern name: Prototype
+
+Problem: How do we efficiently and completely duplicate objects at runtime?
+If we need multiple instances of the same class with the same or similar attributes, how do we write clean code?
+What if the properties are hidden away from other classes?
+
+Solution: Add a clone functionality to the desired class (This is done by default for the Object in Java) that effectively
+clones the calling object and returns a new copy.
+
+This pattern is more or less a workaround for the limitations of the language.
+
+For Java, it is a standard to restrict access to properties using the private keyword.
+
+Because of this, some properties may not be accessible by another class. Thus, a clone functionality that requires
+all of the internal object state may not be able to be implemented outside.
+
+This pattern violates a few principles:
+X Single responsibility principle - Classes that want a cloning functionality must implement it themselves, on top
+of all the other business logic it manages.
+X Open-Closed principle - The clone() method returns an instance of itself, this means that this method cannot be
+re-used for child classes.

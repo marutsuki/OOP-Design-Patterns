@@ -1,0 +1,34 @@
+Pattern Name: Factory Method
+
+Problem: How does one manage complex object creation logic where different implementations of an interface
+require different implementations of a dependency?
+
+Example:
+We have a Vehicle super class, each owning a specific Operator class.
+
+The Vehicles each contains an Operator class, however, depending on the Vehicle, the type of Operator they want
+might be different.
+
+Eg.
+
+Car -> Driver
+Ship -> Sailor
+Plane -> Pilot
+Bicycle -> Cyclist
+Spaceship -> Astronaut
+
+How do we design a modulated system where each container decides independently what type of Operator they want?
+
+Solution: The Factory Method says create a common interface between the composing classes and enforce all implementations
+to specify how they want to create the dependant class.
+
+For this sample code, we have a Dummy object with 3 implementations.
+
+And we have a generic FactoryMethod class whose implementations are dependent on the Dummy class.
+
+However, each implementation of FactoryMethod requires a different implementation of Dummy.
+
+Following the Factory Method.
+We create a generic Dummy property in the super class which will be used by the various implementations.
+We expose an abstract createDummy() method which will force all implementations of FactoryMethod to specify
+how they want their Dummy object.

@@ -1,0 +1,35 @@
+Pattern Name: Simple Factory
+
+Problem: How do we separate object creation code and logic away from the actual business logic?
+
+Often, programmers find themselves designing overly complicated classes that do too many things.
+This causes the code to become incohesive and harder to understand.
+
+A particularly common example is where a class relies on another for performing it's tasks as well as being responsible
+for tackling all the boilerplate code required to instantiate the composed class.
+
+Is there a better way of designing such a system? How do we separate object creation concerns as far
+as away as possible from the user class?
+
+Solution: The Simple Factory suggests we separate object creation into a separate module where all or most of the logic
+required is managed there. In doing so, we are separating object creation concerns away from the class that uses it.
+
+In the sample code provided, there is a Dummy type, with 3 different implementations.
+
+However, we want to flexibly switch between the implementations without changing code.
+How can we do this?
+
+We can use a configuration file to specify the implementation wanted. However, reading the configuration file
+and using Java reflection is no small task, if we introduce the process to the classes that actually want to use
+the Dummy class, it will be messy.
+
+Instead, let's delegate the complex logic to a separate class, the SimpleFactory which exposes a single getDummy()
+method that abstracts away all the parsing logic.
+
+NOTE: In this sample code, there is not much logic involved in the actual creation of the dummy classes;
+all of them share the same outward appearance and there is no difference in instantiation. However, realistically, some objects
+may involve different construction code logic. This would probably need the method to have extra parameters and cases
+to be handled with for example a switch case statement.
+
+If the logic around creating an object is extremely complex and involves many possible choices, it may be wiser to use
+the Builder pattern.
