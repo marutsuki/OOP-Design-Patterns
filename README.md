@@ -80,11 +80,11 @@ I do not particularly have a special thing for Java. It's simply a language I am
 | --- | --- |
 | **Creational** | |
 | Factory family | In progress |
-| Builder | Explanation can be improved |
-| Singleton | Explanation can be improved |
-| Prototype | Explanation can be improved |
+| Builder | Done |
+| Singleton | Done |
+| Prototype | Done |
 | **Structural** | |
-| Adaptor | Done (Can be improved) |
+| Adaptor | Done |
 | Bridge | Done |
 | Composite | Done |
 | Decorator | Done |
@@ -95,7 +95,7 @@ I do not particularly have a special thing for Java. It's simply a language I am
 | Chain of Responsibility | Done |
 | Command/Visitor | In progress |
 | Observer | Done |
-| State | Not started |
+| State | Done |
 | Strategy | Not started |
 | Template method | Not started |
 | Mediator | Not started |
