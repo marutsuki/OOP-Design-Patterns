@@ -1,0 +1,45 @@
+Pattern name: Adapter
+
+Problem: How do we unify incompatible third party interfaces so that we can use them interchangeably and swap them
+at will without affecting the user?
+
+Scenario: You are tasked with designing the backend for a real estate website.
+The real estate website currently services three real estate agencies.
+
+Each real estate agency has given you their set of packages required to communicate with their servers.
+
+However, the three clients given to us come from different administrative domains and thus do not share a common interface.
+
+3 Real Estate agencies:
+HomesAreUs: Provides us an interface for which we need to create one of their request objects to encapsulate the necessary data.
+Igloo: Provides a simple interface for which we can send a request, however, does not support the cancellation of requests.
+BuyHomesDotCom: Provides us an interface which has an additional functionality of mapping ids to particular customer objects, which we need to pass
+as part of requests.
+
+In a real estate advertising system, we may want to hide the additional complexity of which agent the property belongs to from the user.
+
+The user mostly won't care about who's selling the property - rather, they want to see all the available properties from all the agencies
+together.
+
+How do we design our system so that we can flexibly swap between the client interfaces depending on the specific user needs?
+
+The first thought is that we could use subtype polymorphism.
+
+However, the clients are externally provided, and we do not have control over their incompatible code.
+
+Solution: 
+The issue is that the interfaces are not unified, which means that the clients cannot be interchanged with subtype polymorphism.
+
+However, we cannot simply force the interfaces to be under the same common interface because they are external and we
+have no control over such code.
+
+To workaround this, we will create our own wrappers (or adapters) for each of the interfaces and subtype the wrappers to a common interface.
+
+Although each client may require different processes and steps for sending a request, we can abstract away this logic in the adapters and force the
+interface exposed by the adapters to match each other, despite the contained objects having completely different logic.
+
+This way, we have essentially 3 wrapper classes interchangeable with other, each dictating how to map their shared interface to their contained
+yet different client interfaces.
+
+Now, we can use these adapter classes in replacement of the original clients and interchange them at will according to
+the specific user needs through the use of subtype polymorphism because they are under the same common interface.
