@@ -1,0 +1,43 @@
+Pattern name: State
+
+Problem:
+How do we design a modular system that revolves around a small set of actions that each have different effects
+based on the context on when they are executed?
+
+Scenario:
+Imagine being responsible for designing a pet simulation game.
+
+The pet can be interacted with through 3 simple ways. Feeding the pet, walking the pet, putting it to sleep.
+
+However, the pet also has a mood, which influences the way the 3 actions are carried out.
+
+For example, the pet can feel hungry - when you attempt to walk the pet when it's hungry, it might not obey you,
+or if it does, it loses more energy than usual.
+
+Another example, the pet can feel sick - when you attempt to feed the pet, it might not eat much and thus gains less energy.
+However, the pet can easily recover from being sick by sleeping.
+
+There can be many more examples, but the idea is:
+- There are a few basic actions.
+- Each of these actions may be carried out differently depending on the pet's mood
+- Doing an action may cause the pet to transition into a new mood.
+
+How would we go implementing such a system.
+
+Solution: The State pattern suggests that we model the system in the form of a finite-state machine.
+
+We represent each context (in this example, the pet's mood) as a state, which we implement as individual objects.
+
+Then, we enforce all states to implement the common actions that can be executed - feed, walk, sleep.
+
+Note that, we implement a default method for each action in the generic class so that a state does not need to implement
+every single action functionality. This may be realistic at times - If your pet is energetic, then feeding it food would do
+nothing.
+
+These state objects all have access to the subject - the pet, which exposes a method to allow the states to create transitions.
+
+For the example above, sleeping a sick pet will cause it to recover. So, when the sleep() method is called on the pet,
+the sick state will transition to normal state.
+
+We also create a null object for the state type (See Null Object pattern), this is in case any exceptions occur when retrieving
+a state.
