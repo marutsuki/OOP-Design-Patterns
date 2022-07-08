@@ -1,0 +1,47 @@
+Pattern name: Strategy
+
+Problem: How do we enable the flexibility to switch between different implementations from a family of algorithms
+at runtime?
+
+Scenario:
+You've been tasked with implementing a modular subsystem for calculating the costs of customer orders.
+
+But it's not as straightforward as you think it is:
+- Not a simple sum all prices
+- User wants to flexibly adjust rules for calculating prices
+- User may want to apply different rules for different customers
+- User may want to provide a particular form of discount for a set of items
+
+How can we go about implementing such a system?
+
+Solution:
+The Strategy pattern suggests to use composition and polymorphism to deal with such a scenario.
+
+Similar to the Bridge pattern, we abstract away the algorithm into a separate class hierarchy.
+
+These will be the strategy classes - each representing a particular algorithm from the family.
+
+Having each strategy subtyped under a common interface, we can flexibly switch at runtime the strategy
+we want to use as well as write generally more modular code.
+
+Each of these strategy classes will have a main method or few, which represents their own approach to the problem.
+
+Finally, there should be a user class which composes of the Strategy object, for which it can expose methods
+to alter the implementation at runtime.
+
+For this example, we have a generic PriceCalculationStrategy supertype which exposes a calculate() method
+used to execute the strategy on the set of items.
+
+Depending on the user needs, they could set the active strategy in an instance of the container class to
+ConstantDiscountStrategy, or PercentageDiscountStrategy, etc. and choose how they want to charge a customer.
+
+Extended:
+In this example, we have extended our system to include some aggregate strategies - those that
+utilize the algorithms of elementary ones.
+
+You may realize that this shows a very similar structure to the Composite pattern.
+
+However, unlike the Composite pattern, the sample code doesn't allow an unlimited hierarchy of components;
+the aggregate strategy directly composes of an elementary one, so it is at most 2 levels deep.
+
+Regardless, it should be noted that Strategy and Composite are two patterns that can be and are often implemented together.

@@ -1,6 +1,6 @@
 Pattern name: Composite
 
-Problem: Imagine you are tasked with designing a sketchpad app. As part of requirements, you need to allow the user
+Scenario: Imagine you are tasked with designing a sketchpad app. As part of requirements, you need to allow the user
 to drag and drop in shapes from a prescribed set.
 
 This seems simple enough to model with some objects. Let's just have a Shape supertype and different shapes as
