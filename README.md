@@ -96,7 +96,7 @@ I do not particularly have a special thing for Java. It's simply a language I am
 | Command/Visitor | In progress |
 | Observer | Done |
 | State | Done |
-| Strategy | Not started |
+| Strategy | Done |
 | Template method | Not started |
 | Mediator | Not started |
 
