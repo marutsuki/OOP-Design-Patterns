@@ -1,0 +1,38 @@
+Pattern name: Template Method
+
+Problem: How do we create a system where we want to enforce a general structure or process, however at the same time,
+let the user implement and decide how to go about doing the small steps?
+
+Scenario:
+This time, you are designing a PvP card game system. The card game flow is composed of various phases:
+- Draw phase
+- Set phase
+- Spell phase
+- Battle phase
+- Set phase 2
+- End turn
+
+However, you might require different algorithms and logic for each of the phases for different types of players.
+
+For example, there can be different difficulties of AI (eg. Easy, Medium, Hard), differently themed AIs (Spell card based,
+Monster card based). Finally, there probably is a human player, where you would need to communicate externally.
+
+Obviously, one could create an enum for each type of player and use a switch statement for each phase to determine
+the algorithm to use. However, this switch statement will quickly become bloated as more implementations are required,
+even if the logic is handed off to a separate class.
+
+Solution:
+The template method suggests that we use inheritance to solve this problem. We can create a generic superclass
+containing the "template method" - This is the main function that holds the structure of the overall process and glues
+the individual steps together.
+
+We then create a method for each phase of the card game (representing the step methods), however, we leave the
+implementation details of these steps to the concrete classes.
+
+This way, we enforce the structure of the generic algorithm and we can let the user freely decide what to do in the
+granular steps. This allows us to create a modular system where we do not need to modify existing code (unless...)
+and just extend the common interface whenever we want a new implementation.
+
+However, the template method does create a tight coupling between the concrete classes and the superclass.
+If the structure of the generic algorithm changes in the template method, the concrete classes may receive the brunt of
+the effect and require potential refactoring.
