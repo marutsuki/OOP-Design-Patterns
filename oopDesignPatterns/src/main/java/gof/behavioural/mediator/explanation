@@ -1,0 +1,41 @@
+*Mediator Pattern*
+
+**Problem**
+How do we decouple a complex subsystem of various components that need to communicate with each other through a complex algorithm?
+
+**Scenario**
+You are tasked with designing a simple chat application, where users are grouped into "rooms", when a user sends a message, the message
+is forwarded to everyone in the sender's chat room.
+
+At first, you decide to connect all the users in the application to every single user class - clearly, this wasn't a good idea and for reasons:
+- Cohesion/Single responsibility principle - Your user classes are now concerned with the communication aspect of the application beyond managing their own designated client
+- Bloated class - If the communication algorithm is complex, your user classes will bloat up
+- Duplicate code - If we have different types of users, we would need to duplicate our communication code over the many classes.
+- Dependency mess - If there are multiple user classes, there will likely be multiple connections to other dependencies.
+
+What we need is to abstract away all the complexity from the user class.
+
+**Solution**
+The mediator pattern suggests that we create a middleman class that serves as the coordinator for all communication.
+
+For this example, we create two generic interfaces - The Mediator and Participant.
+The Mediator serves as the communication coordinator and indirection between all the Participant classes.
+
+We then extend a ChatRoomMediator, which will handle the logic of the chatroom app - receiving incoming messages and direct them onwards appropriately.
+
+This way, to the user classes, the mediator is a black box - they do not know what goes on inside, and only needs to care about
+2 things, the content of the messages it wants to send, and the content of the messages it receives. All the communication and administration logic
+is abstracted away into the mediator.
+
+Furthermore, the generic Mediator and Participant interfaces allow us to introduce more Mediators to the same set of Participants or more Participants
+to the same set of Mediators without needing to modify existing domain classes.
+
+**Benefits**
+- Cohesion/Single responsibility principle - Your user classes are now more solely focused on its own logic - The communication responsibility is taken away
+- Decoupling - The participants are decoupled from each other as they talk indirectly though a middleman
+- Less of a dependency Tangela - If the communication involves interactions with some other external classes, those dependencies are centralized in the mediator
+- Open/Closed principle, polymorphism - If you want to implement a different subsystem that involves the same participants, we can introduce a new mediator instead of modifying the original classes
+
+**Flaws**
+- In-cohesiveness/God object - Although your user classes are more focused on their logic, your mediator can grow in size very quickly and become a "god object".
+- Coupling to a strict interface - Mediators may not always require the same form of communication between Participants and thus polymorphism cannot always be achieved.
