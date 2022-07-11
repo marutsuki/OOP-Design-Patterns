@@ -11,7 +11,7 @@
 .mtj.tmp/
 
 oopDesignPatterns/target/**
-oopDesignPatterns/.idea
+oopDesignPatterns/.idea/**
 
 # Package Files #
 *.jar
