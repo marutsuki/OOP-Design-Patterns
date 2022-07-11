@@ -2,8 +2,6 @@ package gof.behavioural.templatemethod;
 
 import lombok.extern.log4j.Log4j2;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 @Log4j2
@@ -43,7 +41,7 @@ public class CardGamePlayerHuman extends CardGamePlayer {
 
             switch (res) {
                 case "Y", "y" -> System.out.format("Please select a card 1-%d: %s\n", hand.toString(), hand.size());
-                case "N", "n", default -> {
+                default -> {
                     break outer;
                 }
             }

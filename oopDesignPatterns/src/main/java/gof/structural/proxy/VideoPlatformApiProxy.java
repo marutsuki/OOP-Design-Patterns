@@ -34,7 +34,7 @@ public class VideoPlatformApiProxy {
          * The proxy can add additional functionality, perhaps we want more verbose logging than what the software
          * came with
          */
-        log.info("Uploading video { name: {}, length: {} sec, creator: {} }", video.getName(), video.getDuration(), video.getCreator());
+        log.info("Uploading video { name: {}, length: {} sec, creator: {} }", video.name(), video.duration(), video.creator());
         this.thirdPartyVideoPlatformApi.uploadVideo(video);
     }
 
