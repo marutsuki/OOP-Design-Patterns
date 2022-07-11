@@ -24,23 +24,31 @@
 [Getting Started](#getting-started)
 
 ## Introduction
-When I decided to write my first Java app, I had no experience nor foundation in the fundamentals of object-oriented programming.
-Unaware of visibility modifiers, all my variables were of default visibility and accessed directly (I honestly do not hold too much against direct access
-nor am I hardcore "Okay, ALL THESE PROPERTIES MUST BE PRIVATE AND ACCESSED ONLY THROUGH GETTERS AND SETTERS", I like JavaScript (roast me now) and I don't mind
-not sticking to the Java standard norm of information hiding, I am just trying to express my incompetence). Anyways, I had very jumbled and extremely redundant code and the worst part was when
-I found out that I had been using the wrong logic in my duplicated code. Yep, there goes like 1 hour of my time, fixing everything.
-Had I actually known the rules for writing maintainable code, that 1 hour could've easily been reduced to like only 10 minutes.
+When I wrote my first Java application in 2018, I had no experience nor was I aware of the fundamentals of object-oriented programming/design.
 
-Fast forward a year or so and I am taking an object-oriented design subject at university, intrigued by the idea of patterns, I did the biggest nerd move and spent my spare time
-reading up design patterns, specifically GoF. Ever since, I have actually seen improvement in the speed taken to write and refactor code, and as much as I hate to admit it, 
-object-oriented design has become my favourite topic in all my studies.
+The code was written with the narrow mindset of "getting it done for now". You can imagine, it wasn't very pretty, classes intertwined with each other as if they
+were glued with epoxy and forming a dependency graph like a Tangela from Pokemon.
 
-That being said, I feel like I haven't had the opportunity to exercise all these design patterns. So why not just do it on your very own? Yep, so that's my motivation for this project.
+My approach was fundamentally flawed and sometimes you're lucky and you get away with bad code - you don't "pay" for it.
 
-Okay, I am not a hardcore Java enthusiast, just putting it out there in case you're one of those anti-Javas, it just happens that this is my most knowledgable programming language due to university
-and industry.
+However, I actually received the brunt of my code smells.
+Looking through my codebase, trying to fix a bug, I discovered incorrect logic in my duplicated code. However, this wasn't the "forgot to implement hashCode()" type of bug - it was a bug that influenced the interaction between various components of the system.
 
-And to those that disagree with OOP. I'm not against you, some of your arguments I totally can get. However, OOP is probably here to stay and object-oriented design is the best way we cope with it.
+With no other workaround in mind, I crunched out the bug fixing grind and by the time the issue was fixed, it's about time for me to have dinner. Yep, there goes like 1.5 hours of my time, fixing something I wrote up in maybe 1.5 hours. Should've just started from scratch to be honest.
+
+Had I actually known some techniques for writing maintainable code, those 1.5 hours could've easily been reduced to at most 10 minutes.
+
+Fast forward a year or so and I am taking an object-oriented design subject at university in 2020, intrigued by the idea of design patterns, I went nerd mode and spent my spare time during the next few months reading up design patterns and OOP techniques. 
+
+Ever since, I have actually seen improvement in the speed taken to write and refactor code, and as much as I hate to admit it, object-oriented design has become my favourite topic in my studies.
+
+That being said, I feel like I haven't had the opportunity to exercise all these design patterns to a fulfilling extent. So I thought to myself, let's write up sample code for every famously known design pattern and combine these all into a single Java project.
+
+At the same time I am benefitting from this project by spending time practicing my object oriented programming techniques, I hope that there will be some individuals who may benefit from this project as well, whether as a reference for their own work or overcoming a hurdle.
+
+Finally, I am not a hardcore Java enthusiast, it just happens that this is my most knowledgable programming language. Admittingly though, Java has seen great improvement over the years (this project using Java 18). Many excuses for not using or avoiding Java such as too much boilerplate has been given their own abstractions and workarounds. (eg. Lombok, Java 15 Records).
+
+And to those that disagree with OOP - OOP isn't a solution to every problem, there are some scenarios where a different paradigm may be better suited to the task. However, OOP is good at a particular set of problems and is probably here to stay despite it's so-called "drawbacks".
 
 ## What is a Design Pattern?
 
