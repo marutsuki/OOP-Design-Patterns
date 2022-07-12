@@ -101,12 +101,13 @@ I do not particularly have a special thing for Java. It's simply a language I am
 | Proxy | Done |
 | **Behavioural** | |
 | Chain of Responsibility | Done |
-| Command/Visitor | In progress |
+| Command/Visitor | Done |
 | Observer | Done |
 | State | Done |
 | Strategy | Done |
-| Template method | Not started |
-| Mediator | Not started |
+| Template method | Done |
+| Mediator | Done |
+| Memento | Not started |
 
 ## Getting Started
 This codebase is not designed with the intention of being run, but rather to be observed and looked at. As such, there is no application class with the main() entrypoint as you would expect in a Java application.
