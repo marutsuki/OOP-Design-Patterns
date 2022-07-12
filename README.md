@@ -107,7 +107,7 @@ I do not particularly have a special thing for Java. It's simply a language I am
 | Strategy | Done |
 | Template method | Done |
 | Mediator | Done |
-| Memento | Not started |
+| Memento | Done |
 
 ## Getting Started
 This codebase is not designed with the intention of being run, but rather to be observed and looked at. As such, there is no application class with the main() entrypoint as you would expect in a Java application.
