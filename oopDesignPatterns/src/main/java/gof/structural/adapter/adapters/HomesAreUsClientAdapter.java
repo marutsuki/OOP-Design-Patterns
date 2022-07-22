@@ -13,13 +13,15 @@ import java.util.UUID;
 
 @Log4j2
 public class HomesAreUsClientAdapter implements RealEstateAgencyClientAdapter {
-    private HomesAreUsClient client = new HomesAreUsClient();
-
+    private HomesAreUsClient client;
+    public HomesAreUsClientAdapter(HomesAreUsClient client) {
+        this.client = client;
+    }
     @Override
     public void rent(Properties properties) {
         try {
             Calendar startDate = Calendar.getInstance();
-            SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
             startDate.setTime(sdf.parse(properties.getProperty("startDate")));
             HomesAreUsRequest request = new HomesAreUsRequest(
                     startDate,

@@ -7,7 +7,10 @@ import java.util.Properties;
 import java.util.UUID;
 
 public class BuyHomesDotComClientAdapter implements RealEstateAgencyClientAdapter {
-    private BuyHomesDotComClient client = new BuyHomesDotComClient();
+    private BuyHomesDotComClient client;
+    public BuyHomesDotComClientAdapter(BuyHomesDotComClient client) {
+        this.client = client;
+    }
 
     @Override
     public void rent(Properties properties) {

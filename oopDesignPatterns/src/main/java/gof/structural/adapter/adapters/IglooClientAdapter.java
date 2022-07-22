@@ -7,7 +7,10 @@ import java.util.Properties;
 
 @Log4j2
 public class IglooClientAdapter implements RealEstateAgencyClientAdapter {
-    private IglooClient client = new IglooClient();
+    private IglooClient client;
+    public IglooClientAdapter(IglooClient client) {
+        this.client = client;
+    }
 
     @Override
     public void rent(Properties properties) {
